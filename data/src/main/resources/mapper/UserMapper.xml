@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wzw.dao.UserMapper">
+
+    <update id="updateUser">
+        update
+        t_user
+        <set>
+            <if test="user.name !=null">
+                name = #{user.name,jdbcType=VARCHAR},
+            </if>
+            <if test="user.skill !=null">
+                skill = #{user.skill,jdbcType=VARCHAR}
+            </if>
+            <if test="user.comic !=null">
+                comic = #{user.comic,jdbcType=VARCHAR}
+            </if>
+            <if test="user.description !=null">
+                description = #{user.description,jdbcType=VARCHAR}
+            </if>
+        </set>
+        where
+        id = #{user.id,jdbcType=VARCHAR}
+    </update>
+
+
+</mapper>

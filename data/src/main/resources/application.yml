@@ -1,0 +1,35 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      retries:
+    consumer:
+      group-id: groudA
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  datasource:
+    url: jdbc:mysql://localhost:3306/user?useUnicode=true&serverTimezone=GMT&useSSL=false&characterEncoding=utf8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    database: 0
+    password: rd123456
+    host: 10.10.199.149
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 10 # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 5     # 连接池中的最大空闲连接
+        min-idle: 2     # 连接池中的最小空闲连接
+        max-wait: 6000  # 连接池最大阻塞等待时间（使用负值表示没有限制）, 单位 ms
+    timeout: 1000   # 连接超时时间, 单位 ms
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 10086
