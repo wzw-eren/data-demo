@@ -3,6 +3,8 @@ package com.wzw.service;
 import com.wzw.pojo.dto.UserDTO;
 import com.wzw.pojo.entity.User;
 
+import java.util.List;
+
 /**
  * data 服务类
  *
@@ -32,4 +34,20 @@ public interface DataService {
      * @param user
      */
     void saveEntity(User user);
+
+    /**
+     * 根据id查询用户信息
+     *
+     * @param id
+     * @return
+     */
+    UserDTO get(String id);
+
+    /**
+     * 根据id列表查询用户信息
+     *
+     * @param ids
+     * @return
+     */
+    List<UserDTO> getByIds(List<String> ids);
 }

@@ -1,6 +1,9 @@
 package com.wzw.service;
 
+import com.wzw.pojo.dto.EsSearchReq;
 import com.wzw.pojo.entity.User;
+
+import java.util.List;
 
 /**
  * es 服务类
@@ -23,4 +26,12 @@ public interface EsService {
      * @param user
      */
     void esSyncUpdateData(User user);
+
+    /**
+     * 查询用户id
+     *
+     * @param req
+     * @return
+     */
+    List<String> searchUser(EsSearchReq req);
 }

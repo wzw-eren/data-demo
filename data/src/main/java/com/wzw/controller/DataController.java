@@ -3,10 +3,11 @@ package com.wzw.controller;
 import com.wzw.pojo.dto.UserDTO;
 import com.wzw.pojo.entity.User;
 import com.wzw.service.DataService;
-import com.wzw.service.EsService;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -31,5 +32,10 @@ public class DataController {
     @PostMapping("/update")
     public Integer updateData(@RequestBody User user) {
         return dataService.updateData(user);
+    }
+
+    @GetMapping("/get")
+    public UserDTO getById(@RequestParam("id") String id) {
+        return dataService.get(id);
     }
 }
